@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :company_id %>
-    <%= form.number_field :company_id, id: :user_company_id %>
+    <%= form.select :company_id, Company.names %>
   </div>
 
   <div class="field">

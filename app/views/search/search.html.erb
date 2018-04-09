@@ -6,6 +6,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Fname</th>
       <th>Lname</th>
       <th>Email</th>
@@ -17,13 +18,14 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @search.each_hit_with_result.each do |hit,user| %>
       <tr>
-        <td><%= user.fname %></td>
+        <td><%= user.id %></td>
+        <td><%= formated_fname_sunspot(hit, user) %></td>
         <td><%= user.lname %></td>
         <td><%= user.email %></td>
         <td><%= user.username %></td>
-        <td><%= user.company.name %></td>
+        <td><%= formated_cname_sunspot(hit, user) %></td>
         <td><%= user.desc %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -34,5 +36,4 @@
 </table>
 
 <br>
-
 <%= link_to 'New User', new_user_path %>
