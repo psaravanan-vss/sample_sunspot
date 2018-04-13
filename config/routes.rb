@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :widgets
   root "users#index"
   resources :companies
   resources :users
